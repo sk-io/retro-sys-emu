@@ -3,9 +3,10 @@
 CPU::CPU() {}
 
 u8 CPU::read(u16 addr) {
+	u8 data;
 	for (auto& c : components) {
-		if (c->is_mapped_to(addr))
-			return c->read(addr);
+		if (c->read(addr, data))
+			return data;
 	}
 	return 255;
 }
