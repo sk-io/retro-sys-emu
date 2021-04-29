@@ -8,8 +8,7 @@ int main() {
 	CPU6502 cpu;
 
 	Memory ram(0x10000, 0);
-	ram.write(0xFFFC, 0xAB);
-	ram.write(0xFFFD, 0xCD);
+	ram.put("\xAB\xCD", 2, 0xFFFC);
 	cpu.attach(ram);
 
 	cpu.reset();

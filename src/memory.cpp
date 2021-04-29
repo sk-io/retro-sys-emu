@@ -1,5 +1,7 @@
 #include "memory.h"
 
+#include <string.h>
+
 Memory::Memory(u32 _size, u32 _start_addr, bool _rom) : 
     size(_size), start_addr(_start_addr), rom(_rom) {
     mem = new u8[_size];
@@ -27,4 +29,8 @@ void Memory::write(u16 addr, u8 data) {
         return;
 
     data = mem[i];
+}
+
+void Memory::put(const char* data, u16 len, u16 start_addr) {
+    memcpy(mem + start_addr, data, len);
 }

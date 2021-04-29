@@ -11,8 +11,10 @@ public:
 
 	bool read(u16 addr, u8& data);
 	void write(u16 addr, u8 data);
+
+	void put(const char* data, u16 len, u16 start_addr);
 private:
-	u8* mem;
-	u32 size, start_addr;
-	bool rom;
+	u8* mem = nullptr;
+	u32 size = 0, start_addr = 0;
+	bool rom = false;
 };
