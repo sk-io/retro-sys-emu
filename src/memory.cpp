@@ -28,7 +28,7 @@ void Memory::write(u16 addr, u8 data) {
     if (i < 0 || i >= size)
         return;
 
-    data = mem[i];
+    mem[i] = data;
 }
 
 void Memory::put(const char* data, u16 len, u16 start_addr) {
